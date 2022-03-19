@@ -19,13 +19,9 @@ const Index: React.FC<LauncherProps> = ({ onFire }) => {
 	const distanceTimer = useRef<number>(0);
 
 	useEffect(() => {
-		// console.log(intervalId);
-		console.log(`Bow state changed to ${bowState}`);
-
 		if (bowState === LaunchStatuses.Drawing) {
 			// start timer
 			intervalId = setInterval(() => {
-				console.log("hello");
 				distanceTimer.current += 1;
 			}, 20);
 		} else if (bowState === LaunchStatuses.Fired) {
@@ -39,8 +35,6 @@ const Index: React.FC<LauncherProps> = ({ onFire }) => {
 			distanceTimer.current = 0;
 			setBowState(LaunchStatuses.Loaded);
 		}
-
-		console.log(`After conditioal, bow state is ${bowState}`);
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [bowState]);

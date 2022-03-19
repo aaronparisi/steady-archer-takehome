@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
-import Target from "./components/Target/index";
-import Launcher from "./components/Launcher/index";
+import Target from "./components/Target/target";
+import Launcher from "./components/Launcher/launcher";
 import { BiDownArrowCircle } from "react-icons/bi";
 
 import "./stylesheets/index.css";
@@ -17,9 +17,6 @@ function App() {
 
 	const fireArrow = useCallback(
 		(distance: number): void => {
-			// fire arrow
-			console.log(`fired ${distance}`);
-
 			// calculate diff between distance arrow was fired and target distance
 			setDiff(Math.abs(targetDistance - distance)); // redundant
 			setLastDistFired(distance);
