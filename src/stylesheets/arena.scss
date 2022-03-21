@@ -32,27 +32,41 @@
 		& .target {
 			position: absolute;
 			// transform: rotateY(76deg);
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
 
 			.outer-ring {
-				height: 100px;
-				width: 100px;
+				height: 48px;
+				width: 48px;
 				background-color: green;
+
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
 			}
 
 			.inner-ring {
-				height: 75px;
-				width: 75px;
+				height: 32px;
+				width: 32px;
 
-				transform: translate(12.5px, 12.5px);
+				// transform: translate(12.5px, 12.5px);
 
 				background-color: yellow;
+
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
 			}
 
 			.bullseye {
-				height: 50px;
-				width: 50px;
+				height: 16px;
+				width: 16px;
 
-				transform: translate(12.5px, 12.5px);
+				// transform: translate(12.5px, 12.5px);
 				background-color: red;
 			}
 

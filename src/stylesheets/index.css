@@ -59,22 +59,32 @@ img {
 }
 .arena-wrapper .arena .target {
   position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .arena-wrapper .arena .target .outer-ring {
-  height: 100px;
-  width: 100px;
+  height: 48px;
+  width: 48px;
   background-color: green;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .arena-wrapper .arena .target .inner-ring {
-  height: 75px;
-  width: 75px;
-  transform: translate(12.5px, 12.5px);
+  height: 32px;
+  width: 32px;
   background-color: yellow;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .arena-wrapper .arena .target .bullseye {
-  height: 50px;
-  width: 50px;
-  transform: translate(12.5px, 12.5px);
+  height: 16px;
+  width: 16px;
   background-color: red;
 }
 .arena-wrapper .arena .target .ring {
@@ -91,6 +101,10 @@ img {
   color: orange;
   height: 100px;
   width: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .scorecard {
