@@ -69,7 +69,7 @@ function App() {
 	};
 
 	const resetGame = () => {
-		setScore(0); // set score to 0
+		//setScore(0); // set score to 0
 		setTargetDistance(genRandDist()); // reset target distance to random value
 		setLastDistFired(0); // set last distance fired to 0
 		setPastShots([]);

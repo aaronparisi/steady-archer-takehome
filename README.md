@@ -1,3 +1,22 @@
+# Archer
+
+In 2 hours (or less) develop a simple UI to simulate an archer firing arrows at a target.
+The target is randomly assigned a distance between 20ft and 100ft away from the archer. Add a
+button that simulates the bow. Tap once to start drawing the bow string back. Tap again to
+release the string and fire the arrow at the target. The longer you wait between the first and
+second tap, the farther the arrow will fly. Every .1 seconds you spend drawing the string back
+equates to 5 feet of distance (up to a maximum of 150 feet). So, for example, if you draw for
+exactly .5 seconds, the arrow will travel 25 feet. And it’s a linear correlation, so .55 seconds =
+27.5 ft
+Scoring is as such if the arrow’s distance from the target falls within these ranges:
+
+- 2-3ft = 1 point
+- 1-2ft = 3 points
+- 0-1ft (bullseye!) = 5 points
+  After a scoring shot (i.e. one that lands within 3ft), the target is moved to a new random distance
+  20-100ft away.
+  Add UI to track the user’s score
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
