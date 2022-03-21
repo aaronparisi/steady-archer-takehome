@@ -1,0 +1,65 @@
+@import "colors";
+
+.arena-wrapper {
+	width: 100%;
+	height: 250px;
+	position: relative;
+	margin-bottom: 25px;
+	border-bottom: 1px solid $brown;
+
+	.arena {
+		position: absolute;
+		left: 30%;
+		width: 70%;
+
+		padding: 25px;
+		height: 250px;
+
+		display: flex;
+		align-items: center;
+
+		& .arrow {
+			position: absolute;
+			// left: 0px;
+		}
+
+		& .target {
+			position: absolute;
+			// transform: skewX(15deg);
+			// transform: rotate3d(0, 0, 1, 15deg);
+			// transform: rotateZ(15deg);
+			transform: rotateY(76deg);
+
+			.outer-ring {
+				height: 100px;
+				width: 100px;
+				background-color: green;
+			}
+
+			.inner-ring {
+				height: 75px;
+				width: 75px;
+
+				transform: translate(12.5px, 12.5px);
+
+				background-color: yellow;
+			}
+
+			.bullseye {
+				height: 50px;
+				width: 50px;
+
+				transform: translate(12.5px, 12.5px);
+				background-color: red;
+			}
+
+			.ring {
+				border-radius: 50%;
+			}
+		}
+
+		& .past-shot-indicator {
+			position: absolute;
+		}
+	}
+}

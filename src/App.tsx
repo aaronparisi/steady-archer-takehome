@@ -1,11 +1,9 @@
 import React, { useRef, useState } from "react";
-import Target from "./components/Target/target";
 import Launcher from "./components/Launcher/launcher";
-import { BiDownArrowCircle } from "react-icons/bi";
-import { GiHeavyArrow } from "react-icons/gi";
 
 import "./stylesheets/index.css";
 import Scorecard from "./components/Scorecard/scorecard";
+import Arena from "./components/Arena/arena";
 
 const genRandDist = (): number => {
 	return Math.trunc(Math.max(Math.random() * 100, 20));
@@ -23,7 +21,7 @@ let intervalId: NodeJS.Timeout;
 function App() {
 	const [targetDistance, setTargetDistance] = useState<number>(genRandDist);
 	const [score, setScore] = useState<number>(0);
-	const [lastDistFired, setLastDistFired] = useState<number>(0);
+	const [lastDistFired, setLastDistFired] = useState<number>(0); // this can be removed
 	const [gameState, setGameState] = useState<GameState>(GameState.Knocked);
 	const [pastShots, setPastShots] = useState<number[]>([]);
 
@@ -40,8 +38,9 @@ function App() {
 	};
 
 	const setArrowDistance = () => {
-		setLastDistFired(distanceCounter.current); // this should make the little arrow indicator render
+		setLastDistFired(distanceCounter.current);
 		setPastShots(pastShots.concat(distanceCounter.current));
+		distanceCounter.current = 0;
 
 		const curDiff = Math.abs(targetDistance - lastDistFired);
 
@@ -98,30 +97,23 @@ function App() {
 
 	return (
 		<div className="App">
-			<h1>Archer!</h1>
-			<Scorecard
-				gameState={gameState}
-				targetDistance={targetDistance}
-				score={score}
-				pastShots={pastShots}
-			/>
+			{/* <h1 className="game-title">Archer!</h1> */}
+			<div className="viewport">
+				<Scorecard
+					gameState={gameState}
+					targetDistance={targetDistance}
+					score={score}
+					pastShots={pastShots}
+				/>
 
-			<div className="arena">
-				<GiHeavyArrow className="arrow" />
-				<div className="target-wrapper">
-					<Target
-						distance={targetDistance}
-						diff={Math.abs(targetDistance - lastDistFired)}
-					/>
-				</div>
-				{lastDistFired > 0 && (
-					<div className="lastHit" style={{ left: `${lastDistFired * 5}px` }}>
-						<BiDownArrowCircle />
-					</div>
-				)}
+				<Arena
+					targetDistance={targetDistance}
+					lastDistFired={lastDistFired}
+					pastShots={pastShots}
+				/>
+
+				<Launcher onClick={launcherClicked} curState={gameState} />
 			</div>
-
-			<Launcher onClick={launcherClicked} curState={gameState} />
 		</div>
 	);
 }

@@ -1,0 +1,13 @@
+@import "colors";
+
+.launcher-button {
+	padding: 2%;
+	background-color: $dark-gray;
+
+	border-radius: 10px;
+
+	color: $orange;
+
+	height: 100px;
+	width: 150px;
+}

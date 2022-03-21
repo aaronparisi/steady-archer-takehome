@@ -1,58 +1,171 @@
-.outer-ring {
-	height: 100px;
-	width: 100px;
-	background-color: green;
+html {
+  box-sizing: border-box;
+  font-size: 16px;
 }
 
-.inner-ring {
-	height: 75px;
-	width: 75px;
-
-	transform: translate(12.5px, 12.5px);
-
-	background-color: yellow;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
-.bullseye {
-	height: 50px;
-	width: 50px;
-
-	transform: translate(12.5px, 12.5px);
-	background-color: red;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
 }
 
-.ring {
-	border-radius: 50%;
+ol,
+ul {
+  list-style: none;
 }
 
-.arrow {
-	transform: rotate(90deg);
-	font-size: 50px;
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-.target {
-	position: absolute;
+.arena-wrapper {
+  width: 100%;
+  height: 250px;
+  position: relative;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #949484;
 }
-
-.arena {
-	display: flex;
+.arena-wrapper .arena {
+  position: absolute;
+  left: 30%;
+  width: 70%;
+  padding: 25px;
+  height: 250px;
+  display: flex;
+  align-items: center;
 }
-
-#hit {
-	transition: transform 200ms;
-	transform: scale(1.5);
+.arena-wrapper .arena .arrow {
+  position: absolute;
 }
-
-.lastHit {
-	position: absolute;
-	bottom: 0;
+.arena-wrapper .arena .target {
+  position: absolute;
+  transform: rotateY(76deg);
+}
+.arena-wrapper .arena .target .outer-ring {
+  height: 100px;
+  width: 100px;
+  background-color: green;
+}
+.arena-wrapper .arena .target .inner-ring {
+  height: 75px;
+  width: 75px;
+  transform: translate(12.5px, 12.5px);
+  background-color: yellow;
+}
+.arena-wrapper .arena .target .bullseye {
+  height: 50px;
+  width: 50px;
+  transform: translate(12.5px, 12.5px);
+  background-color: red;
+}
+.arena-wrapper .arena .target .ring {
+  border-radius: 50%;
+}
+.arena-wrapper .arena .past-shot-indicator {
+  position: absolute;
 }
 
 .launcher-button {
-	width: 100px;
-	margin-bottom: 100px;
+  padding: 2%;
+  background-color: #1b1b1b;
+  border-radius: 10px;
+  color: orange;
+  height: 100px;
+  width: 150px;
 }
 
-.target-wrapper {
-	position: relative;
+.scorecard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #949484;
+  width: 25%;
+  min-width: 340px;
+  padding: 2%;
+  background-color: #1b1b1b;
+  border-radius: 10px;
+  color: #d1a552;
 }
+.scorecard .scorecard-ticker {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 25px;
+  color: orange;
+}
+.scorecard .scorecard-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+}
+.scorecard .scorecard-body .scorecard-numbers, .scorecard .scorecard-body .scorecard-past-shots {
+  flex-basis: 50%;
+  text-align: center;
+}
+.scorecard .scorecard-body .scorecard-numbers {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.scorecard .scorecard-body .scorecard-numbers .scorecard-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+  height: 45%;
+}
+.scorecard .scorecard-body .scorecard-numbers .scorecard-item .scorecard-item-contents-container {
+  margin-top: 4px;
+  background-color: black;
+  color: orange;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+html {
+  background-color: #95b388;
+}
+
+.game-title {
+  text-align: center;
+}
+
+.arrow {
+  transform: rotate(90deg);
+  font-size: 50px;
+}
+
+#hit {
+  transition: transform 200ms;
+  transform: scale(1.5);
+}
+
+.viewport {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 100px;
+}
+
+/*# sourceMappingURL=index.css.map */

@@ -26,13 +26,9 @@ const Index: React.FC<LauncherProps> = ({ onClick, curState }) => {
 			break;
 	}
 	return (
-		<div className="launcher">
-			<button className="launcher-button" onClick={() => onClick()}>
-				{buttonText}
-			</button>
-
-			{/* <span>{bowState === GameStates.Fired && distanceTimer.current}</span> */}
-		</div>
+		<button className="launcher-button" onClick={() => onClick()}>
+			<h1>{buttonText}</h1>
+		</button>
 	);
 };
 
