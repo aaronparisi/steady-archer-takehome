@@ -17,6 +17,13 @@ Scoring is as such if the arrow’s distance from the target falls within these 
   20-100ft away.
   Add UI to track the user’s score
 
+# todos
+
+- distance counter so you can see how long you've been drawing the arrow
+- make click-and-drag widget
+- distance indicator mode?
+- moving target mode?
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
