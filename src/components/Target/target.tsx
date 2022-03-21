@@ -10,7 +10,7 @@ interface TargetProps {
 
 const Index: React.FC<TargetProps> = ({ distance, diff }) => {
 	return (
-		<div className="target" style={{ left: distance * 8 + 50 - 50 }}>
+		<div className="target" style={{ left: distance * 8 + 50 - 24 }}>
 			<div
 				className="outer-ring ring"
 				// id={diff !== null && diff > 2 && diff < 3 ? "hit" : ""}

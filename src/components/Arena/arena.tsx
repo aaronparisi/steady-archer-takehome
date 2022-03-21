@@ -31,7 +31,7 @@ const Arena: React.FC<ArenaProps> = ({
 						return (
 							<div
 								className="past-shot-indicator"
-								style={{ left: `${shot * 8 + 50}px` }} // the + 50 is to account for the width of the bow icon
+								style={{ left: `${shot * 8 + 50 - 8}px` }} // the + 50 is to account for the width of the bow icon, the - 8 is to account for the width of the indicator itself
 								key={shot}
 							>
 								<BiDownArrowCircle />

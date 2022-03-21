@@ -7,6 +7,7 @@ import Arena from "./components/Arena/arena";
 
 const genRandDist = (): number => {
 	return Math.trunc(Math.max(Math.random() * 100, 20));
+	// return 10;
 };
 
 export enum GameState {
