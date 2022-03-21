@@ -114,6 +114,8 @@ function App() {
 
 				<Launcher onClick={launcherClicked} curState={gameState} />
 			</div>
+
+			<a href="www.aaronparisi.dev">aaronparisi.dev</a>
 		</div>
 	);
 }
