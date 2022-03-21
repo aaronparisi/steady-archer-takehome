@@ -39,14 +39,14 @@ function App() {
 
 	const setArrowDistance = () => {
 		setLastDistFired(distanceCounter.current);
+
 		const tmpArr = pastShots;
 		tmpArr.unshift(distanceCounter.current);
-
 		// setPastShots(pastShots.concat(distanceCounter.current));
 		setPastShots(tmpArr);
-		distanceCounter.current = 0;
 
-		const curDiff = Math.abs(targetDistance - lastDistFired);
+		const curDiff = Math.abs(targetDistance - distanceCounter.current);
+		distanceCounter.current = 0;
 
 		if (curDiff > 3) {
 			// 0 points, game state knocked
@@ -59,10 +59,10 @@ function App() {
 			setScore(score + 5);
 		} else if (curDiff <= 2) {
 			// 3 points, game state hit
-			setScore(score + 5);
+			setScore(score + 3);
 		} else if (curDiff <= 3) {
 			// 1 point, game state hit
-			setScore(score + 5);
+			setScore(score + 1);
 		}
 
 		setGameState(GameState.Hit);

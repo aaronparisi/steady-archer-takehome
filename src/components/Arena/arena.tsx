@@ -19,6 +19,7 @@ const Arena: React.FC<ArenaProps> = ({
 	console.log(lastDistFired);
 	return (
 		<div className="arena-wrapper">
+			<div className="spacer"></div>
 			<div className="arena">
 				<GiHeavyArrow className="arrow" />
 				<Target
@@ -30,7 +31,7 @@ const Arena: React.FC<ArenaProps> = ({
 						return (
 							<div
 								className="past-shot-indicator"
-								style={{ left: `${shot * 8 + 100}px` }}
+								style={{ left: `${shot * 8 + 50}px` }}
 								key={shot}
 							>
 								<BiDownArrowCircle />

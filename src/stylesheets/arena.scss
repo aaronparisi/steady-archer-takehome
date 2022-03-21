@@ -7,10 +7,16 @@
 	margin-bottom: 25px;
 	border-bottom: 1px solid $brown;
 
+	display: flex;
+	flex-direction: row;
+	justify-content: stretch;
+
+	.spacer {
+		flex-basis: 30%;
+	}
+
 	.arena {
-		position: absolute;
-		left: 30%;
-		width: 70%;
+		position: relative;
 
 		padding: 25px;
 		height: 250px;
@@ -25,10 +31,7 @@
 
 		& .target {
 			position: absolute;
-			// transform: skewX(15deg);
-			// transform: rotate3d(0, 0, 1, 15deg);
-			// transform: rotateZ(15deg);
-			transform: rotateY(76deg);
+			// transform: rotateY(76deg);
 
 			.outer-ring {
 				height: 100px;
