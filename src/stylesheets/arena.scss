@@ -77,6 +77,15 @@
 
 		& .past-shot-indicator {
 			position: absolute;
+			margin-bottom: 36px;
+
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			& .past-shot-indicator-counter {
+				margin-bottom: 15px;
+			}
 		}
 	}
 }

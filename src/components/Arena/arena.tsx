@@ -15,8 +15,8 @@ const Arena: React.FC<ArenaProps> = ({
 	lastDistFired,
 	pastShots,
 }) => {
-	console.log(pastShots);
-	console.log(lastDistFired);
+	const numShots = pastShots.length;
+
 	return (
 		<div className="arena-wrapper">
 			<div className="spacer"></div>
@@ -27,13 +27,16 @@ const Arena: React.FC<ArenaProps> = ({
 					diff={Math.abs(targetDistance - lastDistFired)}
 				/>
 				{lastDistFired > 0 &&
-					pastShots.map((shot) => {
+					pastShots.map((shot, idx) => {
 						return (
 							<div
 								className="past-shot-indicator"
 								style={{ left: `${shot * 8 + 50 - 8}px` }} // the + 50 is to account for the width of the bow icon, the - 8 is to account for the width of the indicator itself
 								key={shot}
 							>
+								<div className="past-shot-indicator-counter">
+									{numShots - idx}
+								</div>
 								<BiDownArrowCircle />
 							</div>
 						);
