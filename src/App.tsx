@@ -39,7 +39,11 @@ function App() {
 
 	const setArrowDistance = () => {
 		setLastDistFired(distanceCounter.current);
-		setPastShots(pastShots.concat(distanceCounter.current));
+		const tmpArr = pastShots;
+		tmpArr.unshift(distanceCounter.current);
+
+		// setPastShots(pastShots.concat(distanceCounter.current));
+		setPastShots(tmpArr);
 		distanceCounter.current = 0;
 
 		const curDiff = Math.abs(targetDistance - lastDistFired);
@@ -96,7 +100,7 @@ function App() {
 	};
 
 	return (
-		<div className="App">
+		<div className="app">
 			{/* <h1 className="game-title">Archer!</h1> */}
 			<div className="viewport">
 				<Scorecard
@@ -115,7 +119,14 @@ function App() {
 				<Launcher onClick={launcherClicked} curState={gameState} />
 			</div>
 
-			<a href="www.aaronparisi.dev">aaronparisi.dev</a>
+			<a
+				href="http://www.aaronparisi.dev"
+				target={"_blank"}
+				style={{ position: "absolute", bottom: "20px", left: "20px" }}
+				rel="noreferrer"
+			>
+				aaronparisi.dev
+			</a>
 		</div>
 	);
 }

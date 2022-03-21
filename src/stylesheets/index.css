@@ -116,6 +116,11 @@ img {
   flex-basis: 50%;
   text-align: center;
 }
+.scorecard .scorecard-body .scorecard-past-shots ul {
+  overflow-y: scroll;
+  scroll-behavior: auto;
+  max-height: 100px;
+}
 .scorecard .scorecard-body .scorecard-numbers {
   display: flex;
   flex-direction: column;
@@ -166,6 +171,10 @@ html {
   align-items: center;
   justify-content: space-between;
   padding-top: 100px;
+}
+
+.app {
+  height: 100vh;
 }
 
 /*# sourceMappingURL=index.css.map */

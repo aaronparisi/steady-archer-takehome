@@ -52,6 +52,8 @@ const Scorecard: React.FC<ScoreCardProps> = ({
 			break;
 	}
 
+	const numShots = pastShots.length;
+
 	return (
 		<div className="scorecard">
 			<h2 className="scorecard-ticker">{gameStateText}</h2>
@@ -65,8 +67,8 @@ const Scorecard: React.FC<ScoreCardProps> = ({
 				<div className="scorecard-past-shots">
 					<h3>Past shots:</h3>
 					<ul>
-						{pastShots.map((shot) => {
-							return <li key={shot}>{shot}</li>;
+						{pastShots.map((shot, idx) => {
+							return <li key={shot}>{`${numShots - idx}: ${shot}`}</li>;
 						})}
 					</ul>
 				</div>

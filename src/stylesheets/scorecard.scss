@@ -32,6 +32,15 @@
 			text-align: center;
 		}
 
+		& .scorecard-past-shots {
+			& ul {
+				overflow-y: scroll;
+				scroll-behavior: auto;
+
+				max-height: 100px; // meh
+			}
+		}
+
 		& .scorecard-numbers {
 			display: flex;
 			flex-direction: column;
