@@ -14,10 +14,10 @@ const Index: React.FC<LauncherProps> = ({ onClick, curState }) => {
 			buttonText = "Draw!";
 			break;
 		case GameState.Drawn:
-			buttonText = "Fire!";
+			buttonText = "Release!";
 			break;
-		case GameState.Fired:
-			buttonText = "Calculating...";
+		case GameState.Released:
+			buttonText = "Released!";
 			break;
 		case GameState.Hit:
 			buttonText = "Reset Target!";
@@ -26,7 +26,11 @@ const Index: React.FC<LauncherProps> = ({ onClick, curState }) => {
 			break;
 	}
 	return (
-		<button className="launcher-button" onClick={() => onClick()}>
+		<button
+			className="launcher-button"
+			onClick={() => onClick()}
+			disabled={curState === GameState.Released}
+		>
 			<h1>{buttonText}</h1>
 		</button>
 	);

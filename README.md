@@ -19,7 +19,9 @@ Scoring is as such if the arrow’s distance from the target falls within these 
 
 # todos
 
+- delay while arrow is flying through the air, arrow animation
 - distance counter so you can see how long you've been drawing the arrow
+- remove lastDistFired?
 - make click-and-drag widget
 - distance indicator mode?
 - moving target mode?

@@ -13,7 +13,7 @@ const genRandDist = (): number => {
 export enum GameState {
 	Knocked,
 	Drawn,
-	Fired,
+	Released,
 	Hit,
 }
 
@@ -38,14 +38,30 @@ function App() {
 		clearInterval(intervalId);
 	};
 
-	const setArrowDistance = () => {
+	const animateArrow = () => {
+		// arrow will remain "released" proportional to how long the arrow would be in the air
+		console.log("starting animation");
+		return setTimeout(() => {
+			console.log("stopping animation");
+			setupNextGameRound();
+		}, distanceCounter.current * 20);
+	};
+
+	const setupNextGameRound = () => {
+		// I felt 'weird' about this function ALSO calling setGameState
+		// but I also do not want to have to do the calculations over again
+		// I think it makes fine sense for this function to let its caller know the results of
+
+		// record this distance as last dist fired
 		setLastDistFired(distanceCounter.current);
 
+		// add this distance to past shots
 		const tmpArr = pastShots;
 		tmpArr.unshift(distanceCounter.current);
 		// setPastShots(pastShots.concat(distanceCounter.current));
 		setPastShots(tmpArr);
 
+		// figure out how close we were to the target
 		const curDiff = Math.abs(targetDistance - distanceCounter.current);
 		distanceCounter.current = 0;
 
@@ -66,6 +82,7 @@ function App() {
 			setScore(score + 1);
 		}
 
+		// do animation here
 		setGameState(GameState.Hit);
 	};
 
@@ -88,8 +105,8 @@ function App() {
 				// arrow has been released
 				// TODO: do some animation in here
 				stopTimer();
-				setGameState(GameState.Fired);
-				setArrowDistance();
+				setGameState(GameState.Released);
+				animateArrow();
 				break;
 			case GameState.Hit:
 				// game has been reset

@@ -42,7 +42,7 @@ const Scorecard: React.FC<ScoreCardProps> = ({
 		case GameState.Drawn:
 			gameStateText = "Bow is drawn!";
 			break;
-		case GameState.Fired:
+		case GameState.Released:
 			gameStateText = "Arrow has been fired!";
 			break;
 		case GameState.Hit:
