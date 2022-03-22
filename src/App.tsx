@@ -22,7 +22,6 @@ let intervalId: NodeJS.Timeout;
 function App() {
 	const [targetDistance, setTargetDistance] = useState<number>(genRandDist);
 	const [score, setScore] = useState<number>(0);
-	const [lastDistFired, setLastDistFired] = useState<number>(0); // this can be removed
 	const [gameState, setGameState] = useState<GameState>(GameState.Knocked);
 	const [pastShots, setPastShots] = useState<number[]>([]);
 
@@ -52,9 +51,6 @@ function App() {
 		// but I also do not want to have to do the calculations over again
 		// I think it makes fine sense for this function to let its caller know the results of
 
-		// record this distance as last dist fired
-		setLastDistFired(distanceCounter.current);
-
 		// add this distance to past shots
 		const tmpArr = pastShots;
 		tmpArr.unshift(distanceCounter.current);
@@ -72,13 +68,13 @@ function App() {
 		}
 
 		if (curDiff <= 1) {
-			// 5 points, game state hit
+			// 5 points, game state => hit
 			setScore(score + 5);
 		} else if (curDiff <= 2) {
-			// 3 points, game state hit
+			// 3 points, game state => hit
 			setScore(score + 3);
 		} else if (curDiff <= 3) {
-			// 1 point, game state hit
+			// 1 point, game state => hit
 			setScore(score + 1);
 		}
 
@@ -89,8 +85,7 @@ function App() {
 	const resetGame = () => {
 		//setScore(0); // set score to 0
 		setTargetDistance(genRandDist()); // reset target distance to random value
-		setLastDistFired(0); // set last distance fired to 0
-		setPastShots([]);
+		setPastShots([]); // empty past shots array
 		setGameState(GameState.Knocked); // reset game state to knocke
 	};
 
@@ -128,11 +123,7 @@ function App() {
 					pastShots={pastShots}
 				/>
 
-				<Arena
-					targetDistance={targetDistance}
-					lastDistFired={lastDistFired}
-					pastShots={pastShots}
-				/>
+				<Arena targetDistance={targetDistance} pastShots={pastShots} />
 
 				<Launcher onClick={launcherClicked} curState={gameState} />
 			</div>

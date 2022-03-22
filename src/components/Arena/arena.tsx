@@ -6,15 +6,10 @@ import Target from "../Target/target";
 
 interface ArenaProps {
 	targetDistance: number;
-	lastDistFired: number;
 	pastShots: number[];
 }
 
-const Arena: React.FC<ArenaProps> = ({
-	targetDistance,
-	lastDistFired,
-	pastShots,
-}) => {
+const Arena: React.FC<ArenaProps> = ({ targetDistance, pastShots }) => {
 	const numShots = pastShots.length;
 
 	return (
@@ -24,9 +19,9 @@ const Arena: React.FC<ArenaProps> = ({
 				<GiHeavyArrow className="arrow" />
 				<Target
 					distance={targetDistance}
-					diff={Math.abs(targetDistance - lastDistFired)}
+					diff={Math.abs(targetDistance - pastShots[pastShots.length - 1])}
 				/>
-				{lastDistFired > 0 &&
+				{pastShots.length > 0 &&
 					pastShots.map((shot, idx) => {
 						return (
 							<div
