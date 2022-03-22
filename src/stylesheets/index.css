@@ -102,16 +102,32 @@ img {
 }
 
 .launcher-button {
-  padding: 2%;
+  padding: 10px 20px;
   background-color: #1b1b1b;
   border-radius: 10px;
   color: orange;
   height: 100px;
-  width: 150px;
+  width: 300px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  border: 0px;
+}
+.launcher-button h1 {
+  font-size: 48px;
+}
+.launcher-button:hover {
+  cursor: pointer;
+  background-color: orange;
+  color: black;
+}
+.launcher-button:disabled {
+  background-color: #3d3d3d;
+  color: #d1a552;
+}
+.launcher-button:disabled:hover {
+  cursor: not-allowed;
 }
 
 .scorecard {

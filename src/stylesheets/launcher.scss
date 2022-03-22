@@ -1,7 +1,7 @@
 @import "colors";
 
 .launcher-button {
-	padding: 2%;
+	padding: 10px 20px;
 	background-color: $dark-gray;
 
 	border-radius: 10px;
@@ -9,10 +9,31 @@
 	color: $orange;
 
 	height: 100px;
-	width: 150px;
+	width: 300px;
 
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+
+	border: 0px;
+
+	& h1 {
+		font-size: 48px;
+	}
+
+	&:hover {
+		cursor: pointer;
+		background-color: $orange;
+		color: $black;
+	}
+
+	&:disabled {
+		background-color: $gray;
+		color: $pale-orange;
+
+		&:hover {
+			cursor: not-allowed;
+		}
+	}
 }
