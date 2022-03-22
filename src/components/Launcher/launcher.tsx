@@ -27,18 +27,20 @@ const Index: React.FC<LauncherProps> = ({ onClick, curState, curCounter }) => {
 			break;
 	}
 	return (
-		<button
-			className="launcher-button"
-			onClick={() => onClick()}
-			disabled={curState === GameState.Released}
-		>
-			{/* <div
-				className="stressbar"
-				// style={{ width: `${(curCounter * 2) / 3}%` }}
-				style={{ width: `50%` }}
-			></div> */}
-			<h1>{buttonText}</h1>
-		</button>
+		<div className="launcher-button-wrapper">
+			<button
+				className="launcher-button"
+				onClick={() => onClick()}
+				disabled={curState === GameState.Released}
+			>
+				<div
+					className="stressbar"
+					style={{ width: `${(curCounter * 2) / 3}%` }}
+					// style={{ width: `50%` }} // for illustrative purposes
+				></div>
+				<h1>{buttonText}</h1>
+			</button>
+		</div>
 	);
 };
 

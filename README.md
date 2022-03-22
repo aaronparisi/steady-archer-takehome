@@ -20,7 +20,7 @@ Scoring is as such if the arrow’s distance from the target falls within these 
 # todos
 
 - some kind of animation while we are 'waiting' for arrow to land
-- distance counter so you can see how long you've been drawing the arrow
+- fix arrow indicator off the right side of the page issue
 - make click-and-drag widget
 - distance indicator mode?
 - moving target mode?
