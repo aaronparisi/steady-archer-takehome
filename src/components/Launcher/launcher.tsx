@@ -4,9 +4,10 @@ import { GameState } from "../../App";
 interface LauncherProps {
 	onClick: () => void;
 	curState: GameState;
+	curCounter: number;
 }
 
-const Index: React.FC<LauncherProps> = ({ onClick, curState }) => {
+const Index: React.FC<LauncherProps> = ({ onClick, curState, curCounter }) => {
 	let buttonText: string = "";
 
 	switch (curState) {
@@ -20,7 +21,7 @@ const Index: React.FC<LauncherProps> = ({ onClick, curState }) => {
 			buttonText = "Released!";
 			break;
 		case GameState.Hit:
-			buttonText = "Reset Target!";
+			buttonText = "Reset!";
 			break;
 		default:
 			break;
@@ -31,6 +32,11 @@ const Index: React.FC<LauncherProps> = ({ onClick, curState }) => {
 			onClick={() => onClick()}
 			disabled={curState === GameState.Released}
 		>
+			{/* <div
+				className="stressbar"
+				// style={{ width: `${(curCounter * 2) / 3}%` }}
+				style={{ width: `50%` }}
+			></div> */}
 			<h1>{buttonText}</h1>
 		</button>
 	);

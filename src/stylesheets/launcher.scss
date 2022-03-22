@@ -1,15 +1,7 @@
 @import "colors";
 
 .launcher-button {
-	padding: 10px 20px;
-	background-color: $dark-gray;
-
-	border-radius: 10px;
-
-	color: $orange;
-
-	height: 100px;
-	width: 300px;
+	z-index: 0;
 
 	display: flex;
 	flex-direction: row;
@@ -18,7 +10,28 @@
 
 	border: 0px;
 
+	height: 100px;
+	width: 300px;
+
+	padding: 10px 20px;
+	background-color: $dark-gray;
+	border-radius: 10px;
+	color: $orange;
+
+	position: relative;
+
+	& .stressbar {
+		z-index: 1;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		height: 100%;
+		background-color: $red;
+	}
+
 	& h1 {
+		z-index: 2;
 		font-size: 48px;
 	}
 

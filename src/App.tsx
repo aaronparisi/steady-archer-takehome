@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import Launcher from "./components/Launcher/launcher";
 
 import "./stylesheets/index.css";
@@ -24,12 +24,11 @@ function App() {
 	const [score, setScore] = useState<number>(0);
 	const [gameState, setGameState] = useState<GameState>(GameState.Knocked);
 	const [pastShots, setPastShots] = useState<number[]>([]);
-
-	const distanceCounter = useRef<number>(0);
+	const [distanceCounter, setDistanceCounter] = useState<number>(0);
 
 	const startTimer = () => {
 		intervalId = setInterval(() => {
-			distanceCounter.current += 1;
+			setDistanceCounter((d) => Math.min(d + 1, 150));
 		}, 20);
 	};
 
@@ -43,7 +42,7 @@ function App() {
 		return setTimeout(() => {
 			console.log("stopping animation");
 			setupNextGameRound();
-		}, distanceCounter.current * 20);
+		}, distanceCounter * 20);
 	};
 
 	const setupNextGameRound = () => {
@@ -53,13 +52,13 @@ function App() {
 
 		// add this distance to past shots
 		const tmpArr = pastShots;
-		tmpArr.unshift(distanceCounter.current);
-		// setPastShots(pastShots.concat(distanceCounter.current));
+		tmpArr.unshift(distanceCounter);
 		setPastShots(tmpArr);
 
 		// figure out how close we were to the target
-		const curDiff = Math.abs(targetDistance - distanceCounter.current);
-		distanceCounter.current = 0;
+		const curDiff = Math.abs(targetDistance - distanceCounter);
+		setDistanceCounter((d) => 0);
+		// distanceCounter = 0;
 
 		if (curDiff > 3) {
 			// 0 points, game state knocked
@@ -125,7 +124,12 @@ function App() {
 
 				<Arena targetDistance={targetDistance} pastShots={pastShots} />
 
-				<Launcher onClick={launcherClicked} curState={gameState} />
+				<Launcher
+					onClick={launcherClicked}
+					curState={gameState}
+					curCounter={distanceCounter}
+				/>
+				{gameState === GameState.Drawn && <div>{distanceCounter}</div>}
 			</div>
 
 			<a
