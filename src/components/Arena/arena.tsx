@@ -2,7 +2,7 @@ import React from "react";
 import { BiDownArrowCircle } from "react-icons/bi";
 import { GiHeavyArrow } from "react-icons/gi";
 
-import Target from "../Target/target";
+import Target from "./Target/target";
 
 interface ArenaProps {
 	targetDistance: number;
