@@ -7,7 +7,11 @@ interface LauncherProps {
 	curCounter: number;
 }
 
-const Index: React.FC<LauncherProps> = ({ onClick, curState, curCounter }) => {
+const Launcher: React.FC<LauncherProps> = ({
+	onClick,
+	curState,
+	curCounter,
+}) => {
 	let buttonText: string = "";
 
 	switch (curState) {
@@ -44,4 +48,4 @@ const Index: React.FC<LauncherProps> = ({ onClick, curState, curCounter }) => {
 	);
 };
 
-export default Index;
+export default Launcher;
